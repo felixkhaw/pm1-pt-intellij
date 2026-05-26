@@ -1,0 +1,35 @@
+Aufgabe 2
+a.)
+
+(1)
+Ausdruck:
+   DecimalNumeral
+   6
+
+(2)
+Ausdruck:
+    Ausdruck - Ausdruck
+    DecimalNumeral - DecimalNumeral
+    6 - 2
+
+(3)
+Ausdruck:
+    (Ausdruck) - (Ausdruck)
+    (Ausdruck) - (Ausdruck + Ausdruck)
+    (DecimalNumeral) - (DecimalNumeral + DecimalNumeral)
+    6 - (2 + 5)
+
+(4)
+Ausdruck:
+    (Ausdruck) - (Ausdruck)
+    (Ausdruck) - (Ausdruck * Ausdruck)
+    (DecimalNumeral) - (DecimalNumeral * DecimalNumeral)
+    6 - (2 * 5)
+(5)
+Ausdruck:
+    (Ausdruck) * (Ausdruck)
+    (Ausdruck - Ausdruck) * (Ausdruck)
+    (DecimalNumeral - DecimalNumeral) * (DecimalNumeral)
+    (6 - 2) * 5
+
+b.)
