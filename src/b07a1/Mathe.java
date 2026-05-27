@@ -5,6 +5,9 @@ public class Mathe {
         if(a<0){
             a = -(a);
         }
+        if(b<0){
+            b = -(b);
+        }
         while (a > 0) {
             ++b;
             --a;
