@@ -1,0 +1,14 @@
+3.)
+Startstationen:
+    Stadt "ab" Uhrzeit
+
+Zwischenstation:
+    Stadt "an" Uhrzeit "ab" Uhrzeit [ Gleisangabe ]
+
+Endtstation:
+    Stadt "an" Uhrzeit [ Gleisangabe ]
+
+Gleisangabe:
+    "Gleis" Gleisnummer
+
+Anmerkung: Ich bin davon ausgegangen, dass es sich um ein Zug handelt.
