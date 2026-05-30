@@ -83,3 +83,53 @@ Unterschied zu a.) :
  - Mehr Schritte
  - Mehr Eindeutigkeit
  - Mehr Kombinations-Möglichkeiten
+
+c.)
+Ausdruck:
+    StrichAusdruck
+    PunktAusdruck
+    EinzelAusdruck
+    DecimalNumeral
+    6
+
+Ausdruck:
+    StrichAusdruck
+    StrichAusdruck - PunktAusdruck
+    PunktAusdruck - PunktAusdruck
+    EinzelAusdruck - EinzelAusdruck
+    DecimalNumeral - DecimalNumeral
+    6-2
+
+Ausdruck:
+    StrichAusdruck
+    StrichAusdruck + PunktAusdruck
+    StrichAusdruck - PunktAusdruck + PunktAusdruck
+    PunktAusdruck - PunktAusdruck + PunktAusdruck
+    EinzelAusdruck - EinzelAusdruck + EinzelAusdruck
+    DecimalNumeral - DecimalNumeral + DecimalNumeral
+    6-2+5
+
+Ausdruck:
+    StrichAusdruck
+    StrichAusdruck - PunktAusdruck
+    StrichAusdruck - PunktAusdruck * EinzelAusdruck
+    PunktAusdruck - PunktAusdruck * EinzelAusdruck
+    EinzelAusdruck - EinzelAusdruck * EinzelAusdruck
+    DecimalNumeral - DecimalNumeral * DecimalNumeral
+    6-2*5
+
+Ausdruck:
+    StrichAusdruck
+    PunktAusdruck
+    PunktAusdruck * EinzelAusdruck
+    EinzelAusdruck * EinzelAusdruck
+    ( Ausdruck ) * EinzelAusdruck
+    ( StrichAusdruck - PunktAusdruck ) * EinzelAusdruck
+    ( PunktAusdruck - PunktAusdruck ) * EinzelAusdruck
+    ( EinzelAusdruck - EinzelAusdruck ) * EinzelAusdruck
+    ( DecimalNumeral - DecimalNumeral ) * DecimalNumeral
+    (6-2)*5
+
+Unterschied zu b.)
+    - Verkettete Ausdrücke brauchen teilweise weniger Schritte
+    - Klarer formuliert, welches Zeichen wo stehen darf
