@@ -6,7 +6,7 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
         boolean erg = d1.equals(d2);
         boolean istKorrekt = (erg == erw);
         if (!istKorrekt) {
-            System.out.println("FEHLER: equalsCheck(" + d1.getJahr() +"-"+ d1.getMonat()+"-"+d1.getTag() + "," + d2.getJahr() +"-"+ d2.getMonat()+"-"+d2.getTag() +")==" + erg + " statt " + erw);
+            System.out.println("FEHLER: equalsCheck(" + d1.jahr() +"-"+ d1.monat()+"-"+d1.tag() + "," + d2.jahr() +"-"+ d2.monat()+"-"+d2.tag() +")==" + erg + " statt " + erw);
         }
         return istKorrekt;
     }
@@ -37,7 +37,7 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
         boolean erg = d1.istFrueher(d2);
         boolean istKorrekt = (erg == erw);
         if (!istKorrekt) {
-            System.out.println("FEHLER: istFrueherCheck(" + d1.getJahr() +"-"+ d1.getMonat()+"-"+d1.getTag() + "," + d2.getJahr() +"-"+ d2.getMonat()+"-"+d2.getTag() +")==" + erg + " statt " + erw);
+            System.out.println("FEHLER: istFrueherCheck(" + d1.jahr() +"-"+ d1.monat()+"-"+d1.tag() + "," + d2.jahr() +"-"+ d2.monat()+"-"+d2.tag() +")==" + erg + " statt " + erw);
         }
         return istKorrekt;
     }
@@ -63,7 +63,7 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
         boolean erg = d.toString().equals(s);
         boolean istKorrekt = (erg == erw);
         if (!istKorrekt) {
-            System.out.println("FEHLER: equalsCheck(" + d.getJahr() + "-" + d.getMonat() + "-" + d.getTag() + ", " + s +")==" + erg + " statt " + erw);
+            System.out.println("FEHLER: equalsCheck(" + d.jahr() + "-" + d.monat() + "-" + d.tag() + ", " + s +")==" + erg + " statt " + erw);
         }
         return istKorrekt;
     }
@@ -73,14 +73,31 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
         return toStringCheck(d, "2026-02-01", true);
     }
 
+    public static boolean staticRFTZCheck(Datum d1, Datum d2, boolean erw){
+        boolean erg = d1.toString().equals(d2.toString());
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: staticRFTZCheck(" + d1.jahr() +"-"+ d1.monat()+"-"+d1.tag() + "," + d2.jahr() +"-"+ d2.monat()+"-"+d2.tag() +")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+    public static boolean staticRFTZTest(){
+        Datum d8 = new Datum();
+        Datum d9 = new Datum();
+        d8.setFormatRF("tmj");
+        d9.setFormatTZ('/');
+        return staticRFTZCheck(d8,d9,true);
+    }
+
     public static boolean test(){
         return (
                 equalsTest() &&
                 istFrueherTest() &&
-                toStringTest()
+                toStringTest() &&
+                staticRFTZTest()
         );
     }
-    public static void main(String[] args) {
+    static void main(String[] args) {
         if (test()) {
             System.out.println("OK");
         }
