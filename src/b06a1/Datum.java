@@ -1,9 +1,9 @@
 package b06a1;
 
 public class Datum {
-    private int t;
-    private int m;
-    private int j;
+    private final int t;
+    private final int m;
+    private final int j;
 
     public Datum(){
         this.j = 1;
