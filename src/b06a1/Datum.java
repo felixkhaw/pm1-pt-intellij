@@ -12,8 +12,8 @@ public class Datum {
     }
 
     public Datum(int j, int m){
-        this.j = 1;
-        this.m = 1;
+        this.j = j;
+        this.m = m;
         this.t = 1;
     }
 
@@ -40,7 +40,18 @@ public class Datum {
     }
 
     public boolean istFrueher(Datum d){
-        // Wie kann ich am besten die Abfrage machen?
-        return (this.j < d.j & this.m < d.m & this.t < d.t); // ist noch falsch
+        if(this.j < d.j){
+            return true;
+        } else {
+            if(this.j == d.j & this.m < d.m){
+                return true;
+            } else {
+                return this.j == d.j & this.m == d.m & this.t < d.t;
+            }
+        }
+    }
+
+    public String toString(){
+        return this.j + "-" + (this.m < 10 ? "0"+this.m : this.m) + "-" + (this.t < 10 ? "0"+this.t : this.t);
     }
 }
