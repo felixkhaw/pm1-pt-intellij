@@ -41,6 +41,6 @@ public class Datum {
 
     public boolean istFrueher(Datum d){
         // Wie kann ich am besten die Abfrage machen?
-        // return (this.j < d.j & this.m < d.m & this.t < d.t);
+        return (this.j < d.j & this.m < d.m & this.t < d.t); // ist noch falsch
     }
 }
