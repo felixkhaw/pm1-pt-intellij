@@ -51,7 +51,19 @@ public class Rational {
     }
 
     public Rational add(Rational r){
-        return new Rational((this.zaehler()*r.nenner()+r.zaehler()*this.nenner()),(this.nenner()*r.nenner()));
+        return new Rational(this.zaehler()*r.nenner()+r.zaehler()*this.nenner(),this.nenner()*r.nenner());
+    }
+
+    public Rational sub(Rational r){
+        return new Rational(this.zaehler()*r.nenner()-r.zaehler()*this.nenner(),this.nenner()*r.nenner());
+    }
+
+    public Rational mul(Rational r){
+        return new Rational(this.zaehler()*r.zaehler(),this.nenner()*r.nenner());
+    }
+
+    public Rational div(Rational r){
+        return new Rational(this.zaehler()*r.nenner(),this.nenner()*r.zaehler());
     }
 
     public String toString(){
