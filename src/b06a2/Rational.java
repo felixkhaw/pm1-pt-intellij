@@ -32,6 +32,20 @@ public class Rational {
         return this.zaehler() < r.zaehler();
     }
 
+    public Rational abs(){
+        int l_z = this.z;
+        int l_n = this.n;
+
+        if( l_z < 0 ){
+            l_z = l_z * (-1);
+        }
+
+        if( l_n < 0 ){
+            l_n = l_n * (-1);
+        }
+        return new Rational(l_z,l_n);
+    }
+
     public String toString(){
         return this.z + "/" + this.n;
     }
