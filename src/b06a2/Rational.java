@@ -46,6 +46,10 @@ public class Rational {
         return new Rational(l_z,l_n);
     }
 
+    public Rational rez(){
+        return new Rational(this.nenner(), this.zaehler());
+    }
+
     public String toString(){
         return this.z + "/" + this.n;
     }
