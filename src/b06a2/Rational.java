@@ -50,6 +50,10 @@ public class Rational {
         return new Rational(this.nenner(), this.zaehler());
     }
 
+    public Rational add(Rational r){
+        return new Rational((this.zaehler()*r.nenner()+r.zaehler()*this.nenner()),(this.nenner()*r.nenner()));
+    }
+
     public String toString(){
         return this.z + "/" + this.n;
     }
