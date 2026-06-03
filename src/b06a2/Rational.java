@@ -25,6 +25,10 @@ public class Rational {
         return this.n;
     }
 
+    public boolean equals(Rational a){
+        return this.zaehler() == a.zaehler() && this.nenner() == a.nenner();
+    }
+
     public boolean istKleiner(Rational r){
         if(this.nenner() != r.nenner()){
             return this.zaehler() * r.nenner() < r.zaehler() * this.nenner();
