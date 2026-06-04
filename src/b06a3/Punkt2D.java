@@ -1,19 +1,19 @@
 package b06a3;
 
 public class Punkt2D {
-    private final int x;
-    private final int y;
+    private final double x;
+    private final double y;
     
-    Punkt2D(int x, int y){
+    Punkt2D(double x, double y){
         this.x = x;
         this.y = y;
     }
     
-    public int x(){
+    public double x(){
         return this.x;
     }
 
-    public int y(){
+    public double y(){
         return this.y;
     }
 }
