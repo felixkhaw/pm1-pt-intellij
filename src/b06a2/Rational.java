@@ -7,6 +7,15 @@ public class Rational {
     public Rational() {
         this(0,1);
     }
+
+    public Rational(int z){
+        this(z, 1);
+    }
+
+    public Rational(Rational r){
+        this(r.zaehler(), r.nenner());
+    }
+
     public Rational(int z, int n){
         if(n < 0){
             n = n * (-1);
@@ -44,30 +53,41 @@ public class Rational {
             l_z = l_z * (-1);
         }
 
-        if( l_n < 0 ){
-            l_n = l_n * (-1);
-        }
         return new Rational(l_z,l_n);
     }
 
     public Rational rez(){
-        return new Rational(this.nenner(), this.zaehler());
+        return new Rational(
+                this.nenner(), this.zaehler()
+        );
     }
 
     public Rational add(Rational r){
-        return new Rational(this.zaehler()*r.nenner()+r.zaehler()*this.nenner(),this.nenner()*r.nenner());
+        return new Rational(
+                this.zaehler()*r.nenner()+r.zaehler()*this.nenner(),
+                this.nenner()*r.nenner()
+        );
     }
 
     public Rational sub(Rational r){
-        return new Rational(this.zaehler()*r.nenner()-r.zaehler()*this.nenner(),this.nenner()*r.nenner());
+        return new Rational(
+                this.zaehler()*r.nenner()-r.zaehler()*this.nenner(),
+                this.nenner()*r.nenner()
+        );
     }
 
     public Rational mul(Rational r){
-        return new Rational(this.zaehler()*r.zaehler(),this.nenner()*r.nenner());
+        return new Rational(
+                this.zaehler()*r.zaehler(),
+                this.nenner()*r.nenner()
+        );
     }
 
     public Rational div(Rational r){
-        return new Rational(this.zaehler()*r.nenner(),this.nenner()*r.zaehler());
+        return new Rational(
+                this.zaehler()*r.nenner(),
+                this.nenner()*r.zaehler()
+        );
     }
 
     public String toString(){
