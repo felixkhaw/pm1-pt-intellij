@@ -16,4 +16,8 @@ public class Punkt2D {
     public double y(){
         return this.y;
     }
+    
+    public String toString() {
+        return this.x() + "/" + this.y();
+    }
 }
