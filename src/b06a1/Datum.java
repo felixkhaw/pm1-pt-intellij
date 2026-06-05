@@ -29,7 +29,7 @@ public class Datum {
         this(d.j, d.m, d.t);
     }
 
-    public int jahr() {
+    public int jahr() { 
         return this.j;
     }
 
