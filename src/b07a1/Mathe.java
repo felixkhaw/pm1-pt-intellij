@@ -4,7 +4,7 @@ public class Mathe {
     // a=-3 b=-6
     public static int addLoop(int a, int b) {
         int tmp_a_us = 0;
-        boolean a_us = true;
+        boolean a_us = false;
         boolean b_us = true;
         if (a < 0) {
             tmp_a_us = -(a);
@@ -15,13 +15,18 @@ public class Mathe {
         }
         
         while (tmp_a_us > 0) {
-            if(a_us==false & b_us == false){
+            if(a_us==false && b_us == false){
                 --b;
                 --tmp_a_us;
             }  else {
-               if(a_us==true & b_us==false){
-                   
+               if(a_us==true && b_us==false){
+                   --b;
+                   --tmp_a_us;
                } 
+            }
+            if(( a_us==true || a_us==false ) && b_us==true){
+                ++b;
+                --tmp_a_us;
             }
         }
         return b;
