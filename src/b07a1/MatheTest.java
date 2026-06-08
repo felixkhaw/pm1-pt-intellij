@@ -11,9 +11,11 @@ public class MatheTest {
     }
 
     public static boolean addLoopTest(){
-        return (    addLoopCheck(3,6,9) &
-                    addLoopCheck(-3,6,9) &
-                    addLoopCheck(-3,-6,9)    );
+        return (
+                addLoopCheck(3,6,9) &
+                addLoopCheck(-3,6,9) &
+                addLoopCheck(-3,-6,9)
+        );
     }
 
     public static boolean test(){
