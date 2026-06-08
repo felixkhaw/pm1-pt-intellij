@@ -7,7 +7,6 @@ public class Mathe {
             ++b;
             --a;
         }
-
         while (a < 0) {
             --b;
             ++a;

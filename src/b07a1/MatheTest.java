@@ -12,9 +12,11 @@ public class MatheTest {
 
     public static boolean addLoopTest(){
         return (
-                addLoopCheck(3,6,9) &
-                addLoopCheck(-3,6,9) &
-                addLoopCheck(-3,-6,9)
+                addLoopCheck(3, 6, 9) &
+                addLoopCheck(-3, 6, 3) &
+                addLoopCheck(3, -6, -3) &
+                addLoopCheck(-3, -6, -9) &
+                addLoopCheck(0, 6, 6)
         );
     }
 
@@ -22,7 +24,7 @@ public class MatheTest {
         return addLoopTest();
     }
 
-    static void main() {
+    public static void main(String[] args) {
         if(test()){
             System.out.println("OK");
         }
