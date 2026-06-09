@@ -1,8 +1,12 @@
 3.)
-Startstationen:
-    Stadt "ab" Uhrzeit
 
-Zwischenstation:
+Fahrplan:
+    Start { Halt } Ende
+
+Start:
+    Stadt [an/ab] Uhrzeit
+
+Ende:
     Stadt "an" Uhrzeit "ab" Uhrzeit [ Gleisangabe ]
 
 Endtstation:

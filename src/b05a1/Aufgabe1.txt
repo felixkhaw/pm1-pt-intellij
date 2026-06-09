@@ -23,4 +23,10 @@ Ungültige Beispiele:
 _123
 
 Beschreibung in eigenen Worten:
-Der Unterstrich ist in Java ein Lesbarkeitstrenner und hat keinen Einfluss auf den Zahlenwert. In der Java-Sprachspezifikation ist beschrieben, wie eine Dezimalzahl aussehen darf. Sie kann entweder eine einzelne "0" sein oder sie beginnt mit einer Ziffer von 1 bis 9 und muss mit einer Ziffer enden. Es dürfen keine führenden Nullen stehen also ist 013 nicht 13. Ein Unterstrich darf nicht am Anfang und am Ende der Zahl stehen also nicht _13 oder 13_.
+Der Unterstrich ist in Java ein Lesbarkeitstrenner und hat keinen Einfluss auf den Zahlenwert.
+In der Java-Sprachspezifikation ist beschrieben, wie eine Dezimalzahl aussehen darf.
+Sie kann entweder eine einzelne "0" sein oder sie beginnt mit einer Ziffer von 1 bis 9 und muss mit einer Ziffer enden.
+Es dürfen keine führenden Nullen stehen also ist 013 nicht 13. Ein Unterstrich darf nicht am Anfang und am Ende der Zahl stehen also nicht _13 oder 13_.
+
+Definition
+Ausnahmen
