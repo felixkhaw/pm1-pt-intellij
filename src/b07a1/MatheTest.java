@@ -1,6 +1,7 @@
 package b07a1;
 
 public class MatheTest {
+
     public static boolean addLoopCheck(int a, int b, int erw){
         int erg = Mathe.addLoop(a, b);
         boolean istKorrekt = (erg == erw);
@@ -20,8 +21,32 @@ public class MatheTest {
         );
     }
 
+    public static boolean subLoopCheck(int a, int b, int erw){
+        int erg = Mathe.subLoop(a, b);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: subLoop(" + a + "," + b + ")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean subLoopTest(){
+        return (
+                subLoopCheck(6, 3, 3) &
+                subLoopCheck(6, -3, 9) &
+                subLoopCheck(-3, 3, -6) &
+                subLoopCheck(-3, -3, 0) &
+                subLoopCheck(0, 5, -5) &
+                subLoopCheck(0, -5, 5) &
+                subLoopCheck(5, 0, 5)
+        );
+    }
+
     public static boolean test(){
-        return addLoopTest();
+        return (
+                addLoopTest() &
+                subLoopTest()
+        );
     }
 
     public static void main(String[] args) {
