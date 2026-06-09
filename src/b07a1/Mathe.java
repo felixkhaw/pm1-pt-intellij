@@ -25,22 +25,18 @@ public class Mathe {
         return a;
     }
 
-    public static int mulLoop(int a, int b){
-        if (a == 0 || b == 0) {
-            return 0;
-        }
-        boolean p = (a < 0) == (b < 0);
+    
+    
+    public static int mulLoop(int a, int b) {
+        boolean p = (a < 0) == (b < 0); // Vorzeichen ermitteln
         a = Math.abs(a);
         b = Math.abs(b);
-        int erg = 0;
-        while ( b > 0 ) {
-            int i = a;
-            while( i > 0 ){
-                ++erg;
-                --i;
-            }
-            --b;
+        int c = 0;
+        int e = 0;
+        while(c < b) {
+            e = addLoop(e, a);
+            ++c;
         }
-        return (p) ? erg : -(erg);
+        return p ? e : -(e);
     }
 }
