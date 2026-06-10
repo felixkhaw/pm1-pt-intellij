@@ -85,12 +85,35 @@ public class MatheTest {
         );
     }
 
+    public static boolean modLoopCheck(int a, int b, int erw){
+        int erg = Mathe.modLoop(a, b);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: modLoop(" + a + "," + b + ")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean modLoopTest(){
+        return (
+                modLoopCheck(13, 3, 1) &
+                modLoopCheck(12, 3, 0) &
+                modLoopCheck(-13, 3, -1) &
+                modLoopCheck(13, -3, 1) &
+                modLoopCheck(-13, -3, -1) &
+                modLoopCheck(0, 5, 0) &
+                modLoopCheck(5, 1, 0) &
+                modLoopCheck(5, -1, 0)
+        );
+    }
+
     public static boolean test(){
         return (
                 addLoopTest() &
                 subLoopTest() &
                 mulLoopTest() &
-                divLoopTest()
+                divLoopTest() &
+                modLoopTest()
         );
     }
 

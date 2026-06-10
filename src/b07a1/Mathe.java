@@ -53,4 +53,17 @@ public class Mathe {
         }
         return p ? e : -( e );
     }
+    public static int modLoop( int a, int b ) {
+        if( b == 0 ) {
+            return -1;
+        }
+        boolean p = ( a > 0 );
+        a = Math.abs( a );
+        b = Math.abs( b );
+        int r = a;
+        while( r >= b ) {
+            r = subLoop( r , b );
+        }
+        return p ? r : -r;
+    }
 }
