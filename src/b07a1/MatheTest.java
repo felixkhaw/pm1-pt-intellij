@@ -42,10 +42,55 @@ public class MatheTest {
         );
     }
 
+    public static boolean mulLoopCheck(int a, int b, int erw){
+        int erg = Mathe.mulLoop(a, b);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: mulLoop(" + a + "," + b + ")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean mulLoopTest(){
+        return (
+                mulLoopCheck(3, 4, 12) &
+                mulLoopCheck(-3, 4, -12) &
+                mulLoopCheck(3, -4, -12) &
+                mulLoopCheck(-3, -4, 12) &
+                mulLoopCheck(0, 5, 0) &
+                mulLoopCheck(5, 0, 0) &
+                mulLoopCheck(0, -5, 0)
+        );
+    }
+
+    public static boolean divLoopCheck(int a, int b, int erw){
+        int erg = Mathe.divLoop(a, b);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: divLoop(" + a + "," + b + ")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean divLoopTest(){
+        return (
+                divLoopCheck(12, 3, 4) &
+                divLoopCheck(13, 3, 4) &
+                divLoopCheck(-13, 3, -4) &
+                divLoopCheck(13, -3, -4) &
+                divLoopCheck(-13, -3, 4) &
+                divLoopCheck(0, 5, 0) &
+                divLoopCheck(5, 1, 5) &
+                divLoopCheck(5, -1, -5)
+        );
+    }
+
     public static boolean test(){
         return (
                 addLoopTest() &
-                subLoopTest()
+                subLoopTest() &
+                mulLoopTest() &
+                divLoopTest()
         );
     }
 
