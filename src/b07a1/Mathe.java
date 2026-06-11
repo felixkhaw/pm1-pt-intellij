@@ -2,7 +2,7 @@ package b07a1;
 
 public class Mathe {
     public static int addLoop( int a, int b ) {
-        while (a > 0) {
+        while ( a > 0 ) {
             ++b;
             --a;
         }
@@ -25,7 +25,7 @@ public class Mathe {
         return a;
     }
     
-    public static int mulLoop(int a, int b) {
+    public static int mulLoop( int a, int b ) {
         boolean p = ( a < 0 ) == ( b < 0 ); // Vorzeichen ermitteln
         a = Math.abs( a );
         b = Math.abs( b );
@@ -41,7 +41,7 @@ public class Mathe {
         if( b == 0 ) {
             return -1;
         }
-        boolean p = (a < 0) == (b < 0); // Vorzeichen ermitteln
+        boolean p = ( a < 0 ) == ( b < 0 ); // Vorzeichen ermitteln
         a = Math.abs( a );
         b = Math.abs( b );
         int c = 0;
