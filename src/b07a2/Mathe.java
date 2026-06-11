@@ -10,4 +10,13 @@ public class Mathe {
         }
         return b;
     }
+    public static int subRek(int a, int b){
+        if ( b > 0) {
+            return subRek( --a, --b );
+        }
+        if ( b < 0 ) {
+            return subRek( ++a, ++b );
+        }
+        return a;
+    }
 }
