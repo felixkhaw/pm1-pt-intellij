@@ -62,12 +62,81 @@ public class MatheTest {
                 mulRekCheck(0, -5, 0)
         );
     }
+    
+    public static boolean divRekCheck(int a, int b, int erw){
+        int erg = Mathe.divRek(a, b);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: divRek(" + a + "," + b + ")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean divRekTest(){
+        return (
+                divRekCheck(12, 3, 4) &
+                divRekCheck(13, 3, 4) &
+                divRekCheck(-13, 3, -4) &
+                divRekCheck(13, -3, -4) &
+                divRekCheck(-13, -3, 4) &
+                divRekCheck(0, 5, 0) &
+                divRekCheck(5, 1, 5) &
+                divRekCheck(5, -1, -5) &
+                divRekCheck(5, 0, -1)
+        );
+    }
+    public static boolean modRekCheck(int a, int b, int erw){
+        int erg = Mathe.modRek(a, b);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: modRek(" + a + "," + b + ")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean modRekTest(){
+        return (
+                modRekCheck(13, 3, 1) &
+                modRekCheck(12, 3, 0) &
+                modRekCheck(-13, 3, -1) &
+                modRekCheck(13, -3, 1) &
+                modRekCheck(-13, -3, -1) &
+                modRekCheck(0, 5, 0) &
+                modRekCheck(5, 1, 0) &
+                modRekCheck(5, -1, 0) &
+                modRekCheck(5, 0, -1)
+        );
+    }
+
+    public static boolean powRekCheck(int b, int e, int erw){
+        int erg = Mathe.powRek(b, e);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: powRek(" + b + "," + e + ")==" + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean powRekTest(){
+        return (
+                powRekCheck(2, 3, 8) &
+                powRekCheck(3, 2, 9) &
+                powRekCheck(5, 0, 1) &
+                powRekCheck(0, 3, 0) &
+                powRekCheck(-2, 3, -8) &
+                powRekCheck(-2, 4, 16) &
+                powRekCheck(2, -3, -1)
+        );
+    }
 
     public static boolean test(){
         return (
                 addRekTest() &
                 subRekTest() &
-                mulRekTest()
+                mulRekTest() &
+                divRekTest() &
+                modRekTest() &
+                powRekTest()
         );
     }
 
