@@ -15,4 +15,10 @@ public class Zeichenkette {
         }
         return true;
     }
+    public static boolean istPalindromRek(String s){
+       return false;
+    }
+    public static boolean istPalindromRekHilfe(String s, int l, int r){
+        return false;
+    }
 }
