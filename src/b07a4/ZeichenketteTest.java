@@ -5,15 +5,20 @@ public class ZeichenketteTest {
     public static boolean istPalindromLoopCheck(String s, boolean erw){
         boolean erg = Zeichenkette.istPalindromLoop(s);
         boolean istKorrekt = (erg == erw);
-
-        if (!istKorrekt) { System.out.println(
-                    "FEHLER: istPalindromLoop(\"" + s + "\") == " + erg + " statt " + erw
-            );
+        if (!istKorrekt) {
+            System.out.println("FEHLER: istPalindromLoop(\"" + s + "\") == " + erg + " statt " + erw);
         }
-
         return istKorrekt;
     }
-    
+
+    public static boolean istPalindromRekCheck(String s, boolean erw){
+        boolean erg = Zeichenkette.istPalindromRek(s);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: istPalindromRek(\"" + s + "\") == " + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
 
     public static boolean istPalindromLoopTest(){
         return (
@@ -29,9 +34,24 @@ public class ZeichenketteTest {
         );
     }
 
+    public static boolean istPalindromRekTest(){
+        return (
+                istPalindromRekCheck("Rentner", true) &
+                istPalindromRekCheck("Lager-3-Regal", true) &
+                istPalindromRekCheck("4163614", true) &
+                istPalindromRekCheck("abba", true) &
+                istPalindromRekCheck("abcba", true) &
+                istPalindromRekCheck("a", true) &
+                istPalindromRekCheck("", true) &
+                istPalindromRekCheck("Hallo", false) &
+                istPalindromRekCheck("abca", false)
+        );
+    }
+
     public static boolean test(){
         return (
-                istPalindromLoopTest()
+                istPalindromLoopTest() &
+                        istPalindromRekTest()
         );
     }
 
