@@ -130,13 +130,50 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
         );
     }
 
+    public static boolean monatFuerNameCheck(Datum d, String monat, int erw) {
+        int erg = d.monatFuerName(monat);
+
+        boolean istKorrekt = (erg == erw);
+
+        if (!istKorrekt) {
+            System.out.println(
+                    "FEHLER: monatFuerName(" + monat + ") == " +
+                            erg + " statt " + erw
+            );
+        }
+
+        return istKorrekt;
+    }
+
+    public static boolean monatFuerNameTest() {
+        Datum d = new Datum();
+
+        return (
+                monatFuerNameCheck(d, "Januar", 1) &&
+                monatFuerNameCheck(d, "Februar", 2) &&
+                monatFuerNameCheck(d, "Maerz", 3) &&
+                monatFuerNameCheck(d, "April", 4) &&
+                monatFuerNameCheck(d, "Mai", 5) &&
+                monatFuerNameCheck(d, "Juni", 6) &&
+                monatFuerNameCheck(d, "Juli", 7) &&
+                monatFuerNameCheck(d, "August", 8) &&
+                monatFuerNameCheck(d, "September", 9) &&
+                monatFuerNameCheck(d, "Oktober", 10) &&
+                monatFuerNameCheck(d, "November", 11) &&
+                monatFuerNameCheck(d, "Dezember", 12) &&
+                monatFuerNameCheck(d, "Test", -1) &&
+                monatFuerNameCheck(d, "", -1)
+        );
+    }
+
     public static boolean test(){
         return (
                 equalsTest() &&
                 istFrueherTest() &&
                 toStringTest() &&
                 staticRFTZTest() &&
-                nameFuerMonatTest()
+                nameFuerMonatTest() &&
+                monatFuerNameTest()
         );
     }
     static void main(String[] args) {

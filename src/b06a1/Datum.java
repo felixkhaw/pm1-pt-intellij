@@ -62,6 +62,32 @@ public class Datum {
         return m[z-1];
     }
 
+    public int monatFuerName(String s){
+        if (s == null) {
+            return -1;
+        }
+        String[] m = {
+                "Januar",
+                "Februar",
+                "Maerz",
+                "April",
+                "Mai",
+                "Juni",
+                "Juli",
+                "August",
+                "September",
+                "Oktober",
+                "November",
+                "Dezember"
+        };
+        for (int i = 0; i < m.length; ++i) {
+            if (m[i].equals(s)) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
     public boolean equals(Datum d) {
         return this.j == d.j && this.m == d.m && this.t == d.t;
     }
