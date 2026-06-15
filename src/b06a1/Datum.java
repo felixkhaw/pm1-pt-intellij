@@ -1,6 +1,20 @@
 package b06a1;
 
 public class Datum {
+    private static final String[] monate = {
+            "Januar",
+            "Februar",
+            "Maerz",
+            "April",
+            "Mai",
+            "Juni",
+            "Juli",
+            "August",
+            "September",
+            "Oktober",
+            "November",
+            "Dezember"
+    };
     private final int t;
     private final int m;
     private final int j;
@@ -45,43 +59,15 @@ public class Datum {
         if( z < 1 || z > 12){
             return null;
         }
-        String[] m = {
-                "Januar",
-                "Februar",
-                "Maerz",
-                "April",
-                "Mai",
-                "Juni",
-                "Juli",
-                "August",
-                "September",
-                "Oktober",
-                "November",
-                "Dezember"
-        };
-        return m[z-1];
+        return monate[z-1];
     }
 
     public int monatFuerName(String s){
         if (s == null) {
             return -1;
         }
-        String[] m = {
-                "Januar",
-                "Februar",
-                "Maerz",
-                "April",
-                "Mai",
-                "Juni",
-                "Juli",
-                "August",
-                "September",
-                "Oktober",
-                "November",
-                "Dezember"
-        };
-        for (int i = 0; i < m.length; ++i) {
-            if (m[i].equals(s)) {
+        for (int i = 0; i < monate.length; ++i) {
+            if (monate[i].equals(s)) {
                 return i + 1;
             }
         }
