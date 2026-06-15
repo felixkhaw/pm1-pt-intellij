@@ -29,7 +29,7 @@ public class Datum {
         this(d.j, d.m, d.t);
     }
 
-    public int jahr() { 
+    public int jahr() {
         return this.j;
     }
 
@@ -39,6 +39,27 @@ public class Datum {
 
     public int tag() {
         return this.t;
+    }
+
+    public String nameFuerMonat(int z){
+        if( z < 1 || z > 12){
+            return null;
+        }
+        String[] m = {
+                "Januar",
+                "Februar",
+                "Maerz",
+                "April",
+                "Mai",
+                "Juni",
+                "Juli",
+                "August",
+                "September",
+                "Oktober",
+                "November",
+                "Dezember"
+        };
+        return m[z-1];
     }
 
     public boolean equals(Datum d) {

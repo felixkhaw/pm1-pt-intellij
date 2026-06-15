@@ -88,13 +88,55 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
         d9.setFormatTZ('/');
         return staticRFTZCheck(d8,d9,true);
     }
+    public static boolean nameFuerMonatCheck(Datum d, int monat, String erw) {
+        String erg = d.nameFuerMonat(monat);
+
+        boolean istKorrekt;
+        if (erg == null) {
+            istKorrekt = (erw == null);
+        } else {
+            istKorrekt = erg.equals(erw);
+        }
+
+        if (!istKorrekt) {
+            System.out.println(
+                    "FEHLER: nameFuerMonat(" + monat + ") == " +
+                            erg + " statt " + erw
+            );
+        }
+
+        return istKorrekt;
+    }
+
+    public static boolean nameFuerMonatTest() {
+        Datum d = new Datum();
+
+        return (
+                nameFuerMonatCheck(d, 1, "Januar") &&
+                nameFuerMonatCheck(d, 2, "Februar") &&
+                nameFuerMonatCheck(d, 3, "Maerz") &&
+                nameFuerMonatCheck(d, 4, "April") &&
+                nameFuerMonatCheck(d, 5, "Mai") &&
+                nameFuerMonatCheck(d, 6, "Juni") &&
+                nameFuerMonatCheck(d, 7, "Juli") &&
+                nameFuerMonatCheck(d, 8, "August") &&
+                nameFuerMonatCheck(d, 9, "September") &&
+                nameFuerMonatCheck(d, 10, "Oktober") &&
+                nameFuerMonatCheck(d, 11, "November") &&
+                nameFuerMonatCheck(d, 12, "Dezember") &&
+                nameFuerMonatCheck(d, 0, null) &&
+                nameFuerMonatCheck(d, 13, null) &&
+                nameFuerMonatCheck(d, -1, null)
+        );
+    }
 
     public static boolean test(){
         return (
                 equalsTest() &&
                 istFrueherTest() &&
                 toStringTest() &&
-                staticRFTZTest()
+                staticRFTZTest() &&
+                nameFuerMonatTest()
         );
     }
     static void main(String[] args) {
