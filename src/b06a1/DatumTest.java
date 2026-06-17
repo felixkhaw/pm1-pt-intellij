@@ -166,6 +166,20 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
         );
     }
 
+    public static boolean toStringAusgeschriebenTest() {
+        Datum d = new Datum(1980, 8, 15);
+        Datum.setFormatTZ('0');
+        Datum.setFormatRF("tmj");
+        boolean test1 = toStringCheck(d, "15. August 1980", true);
+        Datum.setFormatRF("mtj");
+        boolean test2 = toStringCheck(d, "August 15. 1980", true);
+        Datum.setFormatRF("jmt");
+        boolean test3 = toStringCheck(d, "1980 August 15.", true);
+        Datum.setFormatTZ('-');
+        Datum.setFormatRF("jmt");
+        return test1 && test2 && test3;
+    }
+
     public static boolean test(){
         return (
                 equalsTest() &&
@@ -173,7 +187,8 @@ public class DatumTest {Datum d1 = new Datum(2026,2,1);
                 toStringTest() &&
                 staticRFTZTest() &&
                 nameFuerMonatTest() &&
-                monatFuerNameTest()
+                monatFuerNameTest() &&
+                toStringAusgeschriebenTest()
         );
     }
     static void main(String[] args) {

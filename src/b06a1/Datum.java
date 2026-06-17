@@ -55,14 +55,14 @@ public class Datum {
         return this.t;
     }
 
-    public String nameFuerMonat(int z){
+    public static String nameFuerMonat(int z){
         if( z < 1 || z > 12){
             return null;
         }
         return monate[z-1];
     }
 
-    public int monatFuerName(String s){
+    public static int monatFuerName(String s){
         if (s == null) {
             return -1;
         }
@@ -89,19 +89,29 @@ public class Datum {
     }
 
     public String toString() {
-        String jahr = "" + this.j;
-        String monat = this.m < 10 ? "0" + this.m : "" + this.m;
-        String tag = this.t < 10 ? "0" + this.t : "" + this.t;
+        String tag;
+        String monat;
+        String jahr = "" + j;
+        char trenner = f_tz;
+
+        if( f_tz == '0' ){
+            tag = t + ".";
+            monat = nameFuerMonat(m);
+            trenner = ' ';
+        } else {
+            tag = t < 10 ? "0" + t : "" + t;
+            monat = m < 10 ? "0" + m : "" + m;
+        }
 
         if (f_rf.equals("tmj")) {
-            return tag + f_tz + monat + f_tz + jahr;
+            return tag + trenner + monat + trenner + jahr;
         }
 
         if (f_rf.equals("mtj")) {
-            return monat + f_tz + tag + f_tz + jahr;
+            return monat + trenner + tag + trenner + jahr;
         }
 
-        return jahr + f_tz + monat + f_tz + tag;
+        return jahr + trenner + monat + trenner + tag;
     }
 
     public static void setFormatRF(String s) {
