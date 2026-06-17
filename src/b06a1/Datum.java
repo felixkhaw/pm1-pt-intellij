@@ -34,6 +34,18 @@ public class Datum {
     }
 
     public Datum(int j, int m, int t) {
+        if( j <= 0 ){
+            throw new IllegalArgumentException("ungueltiger Wert fuer Jahr: " + j);
+        }
+
+        if (m < 1 || m > 12) {
+            throw new IllegalArgumentException("ungueltiger Wert fuer Monat: " + m);
+        }
+
+        if (t < 1 || t > tageInMonat(j, m)) {
+            throw new IllegalArgumentException("ungueltiger Wert fuer Tag: " + t);
+        }
+
         this.j = j;
         this.m = m;
         this.t = t;
@@ -115,10 +127,41 @@ public class Datum {
     }
 
     public static void setFormatRF(String s) {
+        if (s == null) {
+            throw new NullPointerException();
+        }
+        if ( !( s.equals("jmt" ) || s.equals( "mtj" ) || s.equals( "tmj" ) ) ) {
+            throw new IllegalArgumentException( "ungueltiger Wert fuer Format-Reihenfolge: \"" + s + "\"");
+        }
         f_rf = s;
     }
 
     public static void setFormatTZ(char c) {
         f_tz = c;
+    }
+    public static boolean istSchaltjahr(int x){
+        if( x <= 0 ){
+            throw new IllegalArgumentException("ungueltiger Wert fuer Jahr: " + x);
+        }
+        int tmp_4 = x % 4;
+        int tmp_100 = x % 100;
+        int tmp_400 = x % 400;
+        return ((tmp_4 == 0 && tmp_100 != 0) || tmp_400 == 0);
+    }
+
+    public static int tageInMonat(int j, int m){
+        if( j <= 0 ){
+            throw new IllegalArgumentException("ungueltiger Wert fuer Jahr: " + j);
+        }
+        if( m < 1 || m > 12 ){
+            throw new IllegalArgumentException("ungueltiger Wert fuer Monat: " + m);
+        }
+        if( m == 2 ){
+            return istSchaltjahr(j) ? 29 : 28;
+        }
+        if (m == 4 || m == 6 || m == 9 || m == 11) {
+            return 30;
+        }
+        return 31;
     }
 }
