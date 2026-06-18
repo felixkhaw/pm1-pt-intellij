@@ -63,12 +63,74 @@ public class RationalTest {
         );
     }
 
+    public static boolean parseCheck(String s, Rational erw) {
+        Rational erg = Rational.parse(s);
+        boolean istKorrekt = erg.equals(erw);
+
+        if (!istKorrekt) {
+            System.out.println("FEHLER: parse(\"" + s + "\")==" + erg + " statt " + erw);
+        }
+
+        return istKorrekt;
+    }
+
+    public static boolean parseTest() {
+        return (
+                parseCheck("-2/3", new Rational(-2, 3)) &
+                parseCheck("24/-8", new Rational(-3, 1)) &
+                parseCheck("-20/-20", new Rational(1, 1)) &
+                parseCheck("+4/+2", new Rational(2, 1))
+        );
+    }
+
+    public static boolean parseIllegalCheck(String s) {
+        try {
+            Rational.parse(s);
+            System.out.println("FEHLER: parse(\"" + s + "\") wirft keine IllegalArgumentException");
+            return false;
+        } catch (IllegalArgumentException e) {
+            return true;
+        }
+    }
+
+    public static boolean parseIllegalTest() {
+        return (
+                parseIllegalCheck("2") &
+                parseIllegalCheck("2/3/4") &
+                parseIllegalCheck("/3") &
+                parseIllegalCheck("2/") &
+                parseIllegalCheck("a/3") &
+                parseIllegalCheck("2/a") &
+                parseIllegalCheck("2 / 3")
+        );
+    }
+
+    public static boolean parseArithmeticCheck(String s) {
+        try {
+            Rational.parse(s);
+            System.out.println("FEHLER: parse(\"" + s + "\") wirft keine ArithmeticException");
+            return false;
+        } catch (ArithmeticException e) {
+            return true;
+        }
+    }
+
+    public static boolean parseArithmeticTest() {
+        return (
+                parseArithmeticCheck("2/0") &
+                parseArithmeticCheck("-5/0")
+        );
+    }
+
     public static boolean test() {
         return (
                 istKleinerTest() &
                 absTest() &
                 rezTest() &
-                equalsTest()
+                equalsTest() &
+                parseTest() &
+                parseIllegalTest() &
+                parseArithmeticTest()
         );
     }
 

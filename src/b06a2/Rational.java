@@ -17,6 +17,9 @@ public class Rational {
     }
 
     public Rational(int z, int n){
+        if( n == 0 ){
+            throw new ArithmeticException("Division durch Null ist verboten");
+        }
         if(n < 0){
             n = n * (-1);
             z = z * (-1);
@@ -88,6 +91,19 @@ public class Rational {
                 this.zaehler()*r.nenner(),
                 this.nenner()*r.zaehler()
         );
+    }
+
+    public static Rational parse(String s){
+        int p = s.indexOf('/');
+        if ( p == -1) {
+            throw new IllegalArgumentException("Parameter hat das falsche Format");
+        }
+        if (s.indexOf('/', p + 1) != -1) {
+            throw new IllegalArgumentException("Parameter hat das falsche Format");
+        }
+        String nz = s.substring(0,p);
+        String nn = s.substring(p+1);
+        return new Rational(Integer.parseInt(nz), Integer.parseInt(nn));
     }
 
     public String toString(){
