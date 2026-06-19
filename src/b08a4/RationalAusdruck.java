@@ -2,6 +2,7 @@ package b08a4;
 import b06a2.Rational;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RationalAusdruck {
@@ -16,10 +17,19 @@ public class RationalAusdruck {
     }
 
     public static Rational next(Scanner sc) {
-        Rational a = Rational.parse(sc.next());
-        String op = sc.next();
-        Rational b = Rational.parse(sc.next());
-        return auswertung(a, op.charAt(0), b);
+        try {
+            Rational a = Rational.parse(sc.next());
+            String op = sc.next();
+            if (op.length() != 1) {
+                throw new InputMismatchException();
+            }
+            Rational b = Rational.parse(sc.next());
+            return auswertung(a, op.charAt(0), b);
+        } catch (ArithmeticException e) {
+            throw e;
+        } catch (RuntimeException e) {
+            throw new InputMismatchException();
+        }
     }
 
     public static void dialog() throws IOException {
