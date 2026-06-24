@@ -25,6 +25,6 @@ public class DynFeldVonInt {
     }
 
     public int get(){
-
+        return 0;
     }
 }
