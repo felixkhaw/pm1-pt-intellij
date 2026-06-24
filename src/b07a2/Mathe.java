@@ -10,6 +10,12 @@ public class Mathe {
             return addRek( ++a, --b );
         }
         return b;
+        /*
+        *  if(b == 0){
+        *   return a;
+        *  }
+        *  return addRek(++a, --b);
+        * */
     }
     
     public static int subRek(int a, int b){
@@ -20,6 +26,11 @@ public class Mathe {
             return subRek( ++a, ++b );
         }
         return a;
+        /*
+        * if(b==0) return a;
+        * return subRec(--a, --b);
+        *
+        * */
     }
     
     public static int mulRek(int a, int b){
@@ -28,6 +39,13 @@ public class Mathe {
         b = b < 0 ? -b : b;
         int e = mulRekPositiv(a, b);
         return p ? e : -e;
+        /*
+        * if( b < 0 ){
+        *   return mulRecHelp(-a, -b);
+        * }
+        * return mulRecHelp(a, b);
+        *
+        * */
     }
     
     private static int mulRekPositiv(int a, int b){

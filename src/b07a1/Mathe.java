@@ -10,6 +10,12 @@ public class Mathe {
             --b;
             ++a;
         }
+        /*
+         *   if( b < 0) {
+         *       return -addLoop(-a, -b);
+         *   }
+         *
+         * */
         return b;
     }
 
@@ -22,6 +28,7 @@ public class Mathe {
             ++b;
             ++a;
         }
+        // return addLoop(a, -b);
         return a;
     }
     

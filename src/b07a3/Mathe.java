@@ -10,8 +10,8 @@ public class Mathe {
             if (b % 2 != 0) {
                 e = e * a;
             }
-            a = a * a;
-            b = b / 2;
+            a = a * a; // *=
+            b = b / 2; // /=
         }
         return e;
     }

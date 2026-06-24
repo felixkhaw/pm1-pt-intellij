@@ -9,17 +9,22 @@ public class DynFeldVonInt {
 
     public int[] insert(int i, int k) {
         int[] tmpArr = new int[this.dynarr.length+k];
-        for(int u = 0; u < tmpArr.length; ++u){
-                if(u == i){
-                    // Noch beim überlegen
+        for(int u = 0; u < this.dynarr.length; ++u){
+                if(u < i){
+                    tmpArr[u] = this.dynarr[u];
+                } else {
+                    tmpArr[u+k] = this.dynarr[u];
                 }
-                // tmpArr[/* u ist ab if nicht mehr Ziel Index*/] = this.dynarr[u];
         }
-        return this.dynarr = tmpArr;
+        this.dynarr = tmpArr;
+        return this.dynarr;
     }
 
     public int length(){
        return dynarr.length;
     }
 
+    public int get(){
+
+    }
 }
