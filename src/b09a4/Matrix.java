@@ -6,6 +6,11 @@ public class Matrix {
 
     Matrix(int n){
         m = new double[n][n];
+        for(int a = 0; a < m.length; ++a ){
+            for(int i = 0; i < m[0].length; ++i) {
+                m[a][i] = 0.0;
+            }
+        }
     }
 
     Matrix(int z, int s){
@@ -20,4 +25,6 @@ public class Matrix {
             }
         }
     }
+
+
 }
