@@ -10,10 +10,12 @@ public class SWIFT {
     }
 
     public static String landeskuerzel(String s){
+        if(s == null || s.length() != 2) throw new IllegalArgumentException("String hat nicht die richtige laenge!!!");
         return s.toUpperCase();
     }
 
     public static String bankleitzahl(int z){
+        if(z < 10000000 || z > 99999999) throw new IllegalArgumentException("Parameter hat nicht das gewuenschte Format");
         String s = String.valueOf(z);
         while (s.length() < 8) {
             s = "0" + s;
@@ -22,6 +24,7 @@ public class SWIFT {
     }
 
     public static String kontonummer(long z){
+        if(z <= 0 || z > 9999999999L) throw new IllegalArgumentException("Parameter hat nicht das gewuenschte Format");
         String s = String.valueOf(z);
         while (s.length() < 10) {
             s = "0" + s;
@@ -34,6 +37,7 @@ public class SWIFT {
     }
 
     public static int zahlFuerUpper(char c){
+        if(c < 'A' || c > 'Z') throw new IllegalArgumentException("Parameter hat nicht das gewuenschte Format");
         return (c - 'A') + 10;
     }
 
@@ -46,6 +50,15 @@ public class SWIFT {
     }
 
     public static int zahlAlsStringMod97(String s){
+        if (s == null || s.length() == 0) {
+            throw new IllegalArgumentException("Parameter hat nicht das gewuenschte Format");
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) < '0' || s.charAt(i) > '9') {
+                throw new IllegalArgumentException("Parameter hat nicht das gewuenschte Format");
+            }
+        }
         while(s.length() > 9){
             String vorne = s.substring(0, 9);
             long wert = Long.parseLong(vorne);
@@ -57,6 +70,9 @@ public class SWIFT {
     }
 
     public static String pruefzahl(String lk, String bban){
+        if (bban == null || bban.length() != 18) {
+            throw new IllegalArgumentException("Parameter hat nicht das gewuenschte Format");
+        }
         String z = bban + bbanErgaenzung(lk) ;
         int mod = zahlAlsStringMod97(z);
         int pruef = 98 - mod;
