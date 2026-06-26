@@ -1,10 +1,12 @@
 package b09a4;
 
+import java.util.InputMismatchException;
+
 public class Matrix {
 
     public double[][] m;
 
-    Matrix(int n){
+    public Matrix(int n){
         m = new double[n][n];
         for(int a = 0; a < m.length; ++a ){
             for(int i = 0; i < m[0].length; ++i) {
@@ -13,11 +15,11 @@ public class Matrix {
         }
     }
 
-    Matrix(int z, int s){
+    public Matrix(int z, int s){
         m = new double[z][s];
     }
 
-    Matrix(Matrix r){
+    public Matrix(Matrix r){
         m = new double[r.m.length][r.m[0].length];
         for(int a = 0; a < r.m.length; ++a ){
             for(int i = 0; i < r.m[0].length; ++i){
@@ -68,7 +70,45 @@ public class Matrix {
         return this;
     }
     public boolean equals(Matrix m){
-        // liefert als Wahrheitswert, ob die Matrix in Struktur und Werten gleich der
-        //als Argument gegebenen Matrix ist.
+
+        if(m == null) return false;
+        if(this.m.length != m.m.length) return false;
+        if(this.m[0].length != m.m[0].length) return false;
+
+        for(int a = 0; a < m.m.length; ++a ){
+            for(int i = 0; i < m.m[0].length; ++i){
+                if(this.m[a][i] != m.m[a][i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public String toString(){
+        String result = "";
+        for(int a = 0; a < m.length; ++a ){
+            result += "(";
+            for(int i = 0; i < m[0].length; ++i){
+                result += " " + m[a][i];
+            }
+            result += " )\n" ;
+        }
+        return result;
+    }
+
+    public Matrix eingabe(java.util.Scanner sc) {
+        for (int z = 0; z < m.length; z++) {
+            String token = sc.next();
+            if (!"(".equals(token)) throw new InputMismatchException();
+            for (int s = 0; s < m[0].length; s++) {
+                m[z][s] = sc.nextDouble();
+            }
+            token = sc.next();
+            if (!")".equals(token)) {
+                throw new InputMismatchException();
+            }
+        }
+        return this;
     }
 }
