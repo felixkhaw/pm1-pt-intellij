@@ -9,6 +9,10 @@ public class Stromvertrag {
     private int zaehler;
     private static int anzahl = 0;
 
+    Stromvertrag(int m){
+
+    }
+
     public int anzahl(){
     }
 
