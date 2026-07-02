@@ -4,7 +4,7 @@ public class Punkt2D {
     private final double x;
     private final double y;
     
-    Punkt2D(double x, double y){
+    public Punkt2D(double x, double y){
         this.x = x;
         this.y = y;
     }
