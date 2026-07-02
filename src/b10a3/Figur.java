@@ -16,11 +16,11 @@ public abstract class Figur {
 
     public abstract Punkt2D mitte();
 
-    public abstract int durchmesser();
+    public abstract double durchmesser();
 
-    public abstract int umfang();
+    public abstract double umfang();
 
-    public abstract int flaeche();
+    public abstract double flaeche();
 
     public abstract boolean istEnthalten(Punkt2D p);
 
