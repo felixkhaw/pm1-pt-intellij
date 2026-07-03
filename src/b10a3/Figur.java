@@ -22,8 +22,6 @@ public abstract class Figur {
 
     public abstract double flaeche();
 
-    public abstract boolean istEnthalten(Punkt2D p);
-
     public abstract Figur verschiebe(double dx, double dy);
 
     public abstract String toString();
