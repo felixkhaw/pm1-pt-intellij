@@ -5,7 +5,7 @@ import b10a3.FigurPerMitte;
 
 public class KreisPerMitteRadius extends FigurPerMitte {
 
-    private int radius;
+    private final int radius;
 
     public KreisPerMitteRadius(Punkt2D p, int r){
         super(p);
@@ -35,6 +35,15 @@ public class KreisPerMitteRadius extends FigurPerMitte {
 
     public double durchmesser(){
         return 2 * radius;
+    }
+
+    public boolean istEnthalten(Punkt2D p) {
+        if (p == null) {
+            throw new NullPointerException();
+        }
+        double dx = p.x() - mitte().x();
+        double dy = p.y() - mitte().y();
+        return dx * dx + dy * dy <= radius() * radius();
     }
 
     public String toString(){
