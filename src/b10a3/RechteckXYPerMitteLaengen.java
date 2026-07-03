@@ -6,7 +6,7 @@ public class RechteckXYPerMitteLaengen extends FigurPerMitte{
     private final double breite;
     private final double tiefe;
 
-    public RechteckXYPerMitteLaengen(Punkt2D p, int b, int t){
+    public RechteckXYPerMitteLaengen(Punkt2D p, double b, double t){
         super(p);
 
         if (b < 0 || t < 0) {
@@ -15,6 +15,12 @@ public class RechteckXYPerMitteLaengen extends FigurPerMitte{
 
         breite = b;
         tiefe = t;
+    }
+
+    public RechteckXYPerMitteLaengen(RechteckXYPerMitteLaengen r) {
+        super(r);
+        breite = r.breite;
+        tiefe = r.tiefe;
     }
 
     public double breite() {
@@ -38,15 +44,57 @@ public class RechteckXYPerMitteLaengen extends FigurPerMitte{
     }
 
     public boolean istEnthalten(Punkt2D p) {
-        // Letzter Punkt
-        return false;
+        if (p == null) {
+            throw new NullPointerException();
+        }
+
+        Punkt2D m = mitte();
+
+        return (
+                p.x() >= m.x() - breite / 2
+                && p.x() <= m.x() + breite / 2
+                && p.y() >= m.y() - tiefe / 2
+                && p.y() <= m.y() + tiefe / 2
+        );
     }
 
-    public Figur verschiebe(double dx, double dy) {
-        return null;
+    public Punkt2D ecke(boolean istRechts, boolean istOben){
+        Punkt2D m = mitte();
+
+        double x;
+        double y;
+
+        if (istRechts) {
+            x = m.x() + breite / 2;
+        } else {
+            x = m.x() - breite / 2;
+        }
+
+        if (istOben) {
+            y = m.y() + tiefe / 2;
+        } else {
+            y = m.y() - tiefe / 2;
+        }
+
+        return new Punkt2D(x, y);
+    }
+
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        RechteckXYPerMitteLaengen r = (RechteckXYPerMitteLaengen) o;
+
+        return (
+                breite == r.breite &&
+                tiefe == r.tiefe &&
+                mitte().x() == r.mitte().x() &&
+                mitte().y() == r.mitte().y()
+        );
     }
 
     public String toString() {
-        return "";
+        return "[" + ecke(false, false) + "," + ecke(true, true) + "]";
     }
 }
