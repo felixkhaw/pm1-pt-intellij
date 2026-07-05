@@ -2,8 +2,9 @@ package b10a4;
 
 import b06a3.Punkt2D;
 import b10a3.FigurPerMitte;
+import b10a5.Kreis;
 
-public class KreisPerMitteRadius extends FigurPerMitte {
+public class KreisPerMitteRadius extends FigurPerMitte implements Kreis {
 
     private final int radius;
 

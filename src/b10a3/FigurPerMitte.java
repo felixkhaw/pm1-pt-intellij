@@ -1,8 +1,9 @@
 package b10a3;
 
 import b06a3.Punkt2D;
+import b10a5.Figur;
 
-public abstract class FigurPerMitte extends Figur {
+public abstract class FigurPerMitte implements Figur {
     private Punkt2D mp;
 
     public FigurPerMitte(Punkt2D p){
@@ -10,7 +11,6 @@ public abstract class FigurPerMitte extends Figur {
     }
 
     public FigurPerMitte(FigurPerMitte fpm){
-        super(fpm);
         mp = new Punkt2D(fpm.mp.x(), fpm.mp.y());
     }
 

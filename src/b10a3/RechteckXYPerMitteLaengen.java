@@ -1,8 +1,9 @@
 package b10a3;
 
 import b06a3.Punkt2D;
+import b10a5.RechteckXY;
 
-public class RechteckXYPerMitteLaengen extends FigurPerMitte{
+public class RechteckXYPerMitteLaengen extends FigurPerMitte implements RechteckXY {
     private final double breite;
     private final double tiefe;
 
@@ -56,6 +57,21 @@ public class RechteckXYPerMitteLaengen extends FigurPerMitte{
                 && p.y() >= m.y() - tiefe / 2
                 && p.y() <= m.y() + tiefe / 2
         );
+    }
+
+    public Punkt2D ecke(int i) {
+        switch (i) {
+            case 0:
+                return ecke(false, false); // links unten
+            case 1:
+                return ecke(true, false);  // rechts unten
+            case 2:
+                return ecke(true, true);   // rechts oben
+            case 3:
+                return ecke(false, true);  // links oben
+            default:
+                throw new IllegalArgumentException("ungueltige Ecke: " + i);
+        }
     }
 
     public Punkt2D ecke(boolean istRechts, boolean istOben){
