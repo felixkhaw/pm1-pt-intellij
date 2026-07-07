@@ -7,7 +7,19 @@ public class DynFeldVonInt {
         dynarr = new int[al];
     }
 
-    public int[] insert(int i, int k) {
+    public int length(){
+        return dynarr.length;
+    }
+
+    public int get(int i){
+        return dynarr[i];
+    }
+
+    public void set(int i, int v){
+        dynarr[i] = v;
+    }
+
+    public void insert(int i, int k) {
         int[] tmpArr = new int[dynarr.length+k];
         for(int u = 0; u < dynarr.length; ++u){
                 if(u < i){
@@ -17,19 +29,6 @@ public class DynFeldVonInt {
                 }
         }
         dynarr = tmpArr;
-        return dynarr;
-    }
-
-    public int length(){
-       return dynarr.length;
-    }
-
-    public int get(int i){
-        return dynarr[i];
-    }
-
-    public void set(int i, int v){
-        dynarr[i] = v;
     }
 
     public void remove(int i, int k){
