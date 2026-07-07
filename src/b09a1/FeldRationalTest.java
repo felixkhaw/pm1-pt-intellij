@@ -12,11 +12,59 @@ public class FeldRationalTest {
     }
 
     public static boolean istHomogenTest() {
-        return (istHomogenCheck(new Rational[]{}, true));
+        return (
+                istHomogenCheck(new Rational[]{}, true) &&
+                istHomogenCheck(
+                        new Rational[]{
+                            new Rational(3,4),
+                            new Rational(3,4),
+                            new Rational(3,4),
+                            new Rational(3,4),
+                        }, true ) &&
+                istHomogenCheck(
+                        new Rational[]{
+                            new Rational(3,4),
+                            new Rational(3,4),
+                            new Rational(3,4),
+                            new Rational(3,5),
+                        }, false)
+        );
     }
 
+    public static boolean istSortiertCheck(Rational[] f, boolean erw) {
+        boolean erg = FeldRational.istSortiert(f);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: istSortiert(...) == " + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean istSortiertTest() {
+        return (
+                istSortiertCheck(
+                        new Rational[]{
+                                new Rational(-2,5),
+                                new Rational(3,8),
+                                new Rational(3,5),
+                                new Rational(5,7),
+                        }, true 
+                ) &&
+                istSortiertCheck(
+                        new Rational[]{
+                                new Rational(1,4),
+                                new Rational(1,8)
+                        }, false
+                )
+        );
+    }
+    
+
     public static boolean test(){
-        return (istHomogenTest());
+        return (
+                istHomogenTest() &&
+                istSortiertTest()
+        );
     }
 
     static void main(String[] args) {

@@ -14,7 +14,7 @@ public class FeldRational {
         return true;
     }
     
-    public boolean istSortiert( Rational[] f ){
+    public static boolean istSortiert( Rational[] f ){
         if ( f == null ) throw new NullPointerException();
         if ( f.length == 0 ) return true;
         for ( int i = 0; i < f.length - 1; i++ ) {
