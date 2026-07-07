@@ -80,13 +80,36 @@ public class FeldRationalTest {
                 )
         );
     }
+
+    public static boolean maxElementCheck(Rational[] f, Rational erw) {
+        Rational erg = FeldRational.maxElement(f);
+        boolean istKorrekt = (erg.equals(erw));
+        if (!istKorrekt) {
+            System.out.println("FEHLER: maxElement(...) == " + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean maxElementTest() {
+        return (
+                maxElementCheck(
+                        new Rational[]{
+                                new Rational(-2,5),
+                                new Rational(3,8),
+                                new Rational(3,5),
+                                new Rational(5,7),
+                        }, new Rational(5,7)
+                )
+        );
+    }
     
 
     public static boolean test(){
         return (
                 istHomogenTest() &&
                 istSortiertTest() &&
-                maxPosTest()
+                maxPosTest() &&
+                maxElementTest()
         );
     }
 
