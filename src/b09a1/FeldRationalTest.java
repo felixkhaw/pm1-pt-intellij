@@ -58,12 +58,35 @@ public class FeldRationalTest {
                 )
         );
     }
+
+    public static boolean maxPosCheck(Rational[] f, int erw) {
+        int erg = FeldRational.maxPos(f);
+        boolean istKorrekt = (erg == erw);
+        if (!istKorrekt) {
+            System.out.println("FEHLER: maxPos(...) == " + erg + " statt " + erw);
+        }
+        return istKorrekt;
+    }
+
+    public static boolean maxPosTest() {
+        return (
+                maxPosCheck(
+                        new Rational[]{
+                                new Rational(-2,5),
+                                new Rational(3,8),
+                                new Rational(3,5),
+                                new Rational(5,7),
+                        }, 3
+                )
+        );
+    }
     
 
     public static boolean test(){
         return (
                 istHomogenTest() &&
-                istSortiertTest()
+                istSortiertTest() &&
+                maxPosTest()
         );
     }
 

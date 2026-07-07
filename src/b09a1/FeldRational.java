@@ -25,11 +25,14 @@ public class FeldRational {
     
     public static int maxPos(Rational[] f) {
         int maxPos = 0;
-        for ( int i = 1; i < f.length - 1; i++ ) {
+        for ( int i = 1; i < f.length; i++ ) {
             if (f[maxPos].istKleiner(f[i])) {
                 maxPos = i;
             }
         }
         return maxPos;
+    }
+    public static Rational maxElement(Rational[] f) {
+        return f[maxPos(f)];
     }
 }
