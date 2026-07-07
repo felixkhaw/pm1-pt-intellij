@@ -35,4 +35,17 @@ public class FeldRational {
     public static Rational maxElement(Rational[] f) {
         return f[maxPos(f)];
     }
+    
+    public static Rational[] max(Rational[] f1, Rational[] f2){
+        if(f1.length != f2.length) throw new IllegalArgumentException();
+        Rational[] maximal = new Rational[f1.length];
+        for(int i = 0; i < f1.length; i++ ){
+            if(f1[i].istKleiner(f2[i])){
+                maximal[i] = f2[i];
+            } else {
+                maximal[i] = f1[i];
+            }
+        }
+        return maximal;
+    }
 }

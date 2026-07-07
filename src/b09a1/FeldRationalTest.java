@@ -1,6 +1,8 @@
 package b09a1;
 import b06a2.Rational;
 
+import java.util.Arrays;
+
 public class FeldRationalTest {
     public static boolean istHomogenCheck(Rational[] f, boolean erw) {
         boolean erg = FeldRational.istHomogen(f);
@@ -102,6 +104,34 @@ public class FeldRationalTest {
                 )
         );
     }
+
+    public static boolean maxCheck(Rational[] f1, Rational[] f2, Rational[] erw) {
+        Rational[] erg = FeldRational.max(f1, f2);
+        boolean istKorrekt = (Arrays.equals(erg, erw));
+        if (!istKorrekt) {
+            System.out.println("FEHLER: max(...) == " + Arrays.toString(erg) + " statt " + Arrays.toString(erw));
+        }
+        return istKorrekt;
+    }
+
+    public static boolean maxTest() {
+        return (
+                maxCheck(
+                        new Rational[]{
+                                new Rational(-2,5),
+                                new Rational(3,8)
+                        },
+                        new Rational[]{
+                                new Rational(3,5),
+                                new Rational(5,7)
+                        },
+                        new Rational[]{ // Erwartet Array
+                                new Rational(3,5),
+                                new Rational(5,7)
+                        }
+                )
+        );
+    }
     
 
     public static boolean test(){
@@ -109,7 +139,8 @@ public class FeldRationalTest {
                 istHomogenTest() &&
                 istSortiertTest() &&
                 maxPosTest() &&
-                maxElementTest()
+                maxElementTest() &&
+                maxTest()
         );
     }
 

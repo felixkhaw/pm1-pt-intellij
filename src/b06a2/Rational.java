@@ -37,8 +37,19 @@ public class Rational {
         return this.n;
     }
 
-    public boolean equals(Rational a){
-        return this.zaehler() == a.zaehler() && this.nenner() == a.nenner();
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Rational)) {
+            return false;
+        }
+
+        Rational a = (Rational) obj;
+        return this.zaehler() == a.zaehler()
+                && this.nenner() == a.nenner();
     }
 
     public boolean istKleiner(Rational r){
